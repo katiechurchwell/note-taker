@@ -23,7 +23,7 @@ const printResults = (resultArr) => {
   $displayArea.innerHTML = noteHTML.join("");
 };
 
-//retrieve note database
+//retrieve note database and print
 const fetchNotes = (formData = {}) => {
   let queryUrl = "/api/notes";
 
@@ -48,7 +48,6 @@ const hide = (elem) => {
   elem.style.display = "none";
 };
 
-//not running
 const handleRenderSaveBtn = () => {
   if (noteTitle.value != "") {
     show(saveNoteBtn);
@@ -58,10 +57,33 @@ const handleRenderSaveBtn = () => {
 };
 
 //saving notes
+const saveNote = (noteObject) => {
+  fetch("/api/notes", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(noteObject)
+  })
+    .then((response) => {
+      if (response.ok) {
+        return response.json();
+      }
+      alert("Error: " + response.statusText);
+    })
+    .then((postResponse) => {
+      console.log(postResponse);
+      alert("Thank you for posting a note!");
+    });
+  fetchNotes();
+};
+
 const handleGetNotesSubmit = (event) => {
   event.preventDefault();
-  const noteObject = { id, title };
-  fetchNotes(noteObject);
+  const title = noteTitle.value;
+  const text = noteText.value;
+  const noteObject = { title, text };
+  saveNote(noteObject); //needs to be added to database and then list regenerated
 };
 
 //NOTE VIEW STUFF??
@@ -95,29 +117,11 @@ const handleNewNoteView = (e) => {
 };
 
 //event listeners
-saveNoteBtn.addEventListener("submit", handleGetNotesSubmit);
+saveNoteBtn.addEventListener("click", handleGetNotesSubmit); //working on saveNote part; bad request and both fail/success alerts.
 // saveNoteBtn.addEventListener("click", handleNoteSave); //write function
 newNoteBtn.addEventListener("click", handleNewNoteView);
 noteTitle.addEventListener("input", handleRenderSaveBtn); //not working
 noteText.addEventListener("input", handleRenderSaveBtn); //working
-
-//deleting notes
-// const handleNoteDelete = (e) => {
-//   // Prevents the click listener for the list from being called when the button inside of it is clicked
-//   e.stopPropagation();
-
-//   const note = e.target;
-//   const noteId = JSON.parse(note.parentElement.getAttribute("data-note")).id;
-
-//   if (activeNote.id === noteId) {
-//     activeNote = {};
-//   }
-
-//   deleteNote(noteId).then(() => {
-//     // getAndRenderNotes();
-//     renderActiveNote();
-//   });
-// };
 
 //generate note list
 fetchNotes();
