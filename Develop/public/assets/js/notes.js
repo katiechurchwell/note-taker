@@ -2,8 +2,6 @@ const $noteForm = document.querySelector("#form");
 const $displayArea = document.querySelector("#display-area");
 
 const printResults = (resultArr) => {
-  console.log(resultArr);
-
   const noteHTML = resultArr.map(({ title, text }) => {
     return `
   <div class="col-12 col-md-5 mb-3">
@@ -18,7 +16,7 @@ const printResults = (resultArr) => {
   $displayArea.innerHTML = noteHTML.join("");
 };
 
-const getNotes = (formData = {}) => {
+const fetchNotes = (formData = {}) => {
   let queryUrl = "/api/notes";
 
   fetch(queryUrl)
@@ -36,9 +34,9 @@ const getNotes = (formData = {}) => {
 const handleGetNotesSubmit = (event) => {
   event.preventDefault();
   const noteObject = { id, title };
-  getNotes(noteObject);
+  fetchNotes(noteObject);
 };
 
 $noteForm.addEventListener("submit", handleGetNotesSubmit);
 
-getNotes();
+fetchNotes();
