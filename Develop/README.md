@@ -10,9 +10,6 @@ I WANT to be able to write and save notes
 SO THAT I can organize my thoughts and keep track of tasks I need to complete
 
 ## Acceptance Criteria
-WHEN I click on the link to the notes page
-
-THEN I am presented with a page with existing notes listed in the left-hand column, plus empty fields to enter a new note title and the note’s text in the right-hand column
 
 WHEN I enter a new note title and the note’s text
 
