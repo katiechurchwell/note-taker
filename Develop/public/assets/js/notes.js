@@ -56,14 +56,24 @@ const handleRenderSaveBtn = () => {
   }
 };
 
-//saving notes
-const saveNote = (noteObject) => {
+//saving notes (error)
+const handleNoteSubmit = (event) => {
+  event.preventDefault();
+
+  const title = noteTitle.value;
+  const text = noteText.value;
+  const noteObject = { title, text }; //object
+
+  var noteString = JSON.stringify(noteObject); //still an object, causing error
+  console.log("noteString in fetch:", typeof noteString);
+
   fetch("/api/notes", {
     method: "POST",
     headers: {
+      "Accept": "application/json",
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(noteObject)
+    body: noteString,
   })
     .then((response) => {
       if (response.ok) {
@@ -72,21 +82,13 @@ const saveNote = (noteObject) => {
       alert("Error: " + response.statusText);
     })
     .then((postResponse) => {
-      console.log(postResponse);
-      alert("Thank you for posting a note!");
+      alert("Thanks for posting a note!");
     });
-  fetchNotes();
+
+  // fetchNotes();
 };
 
-const handleGetNotesSubmit = (event) => {
-  event.preventDefault();
-  const title = noteTitle.value;
-  const text = noteText.value;
-  const noteObject = { title, text };
-  saveNote(noteObject); //needs to be added to database and then list regenerated
-};
-
-//NOTE VIEW STUFF??
+// Viewing database notes
 const renderActiveNote = () => {
   hide(saveNoteBtn);
 
@@ -117,8 +119,7 @@ const handleNewNoteView = (e) => {
 };
 
 //event listeners
-saveNoteBtn.addEventListener("click", handleGetNotesSubmit); //working on saveNote part; bad request and both fail/success alerts.
-// saveNoteBtn.addEventListener("click", handleNoteSave); //write function
+saveNoteBtn.addEventListener("click", handleNoteSubmit); //working on saveNote part; bad request and both fail/success alerts.
 newNoteBtn.addEventListener("click", handleNewNoteView);
 noteTitle.addEventListener("input", handleRenderSaveBtn); //not working
 noteText.addEventListener("input", handleRenderSaveBtn); //working

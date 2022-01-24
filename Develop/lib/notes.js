@@ -18,6 +18,7 @@ function createNewNote(body, notesArray) {
 }
 
 function validateNote(note) {
+  console.log("validateNote", typeof(note));
   if (!note.name || typeof note.name !== "string") {
     return false;
   } else {
