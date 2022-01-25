@@ -18,12 +18,20 @@ function createNewNote(body, notesArray) {
 }
 
 function validateNote(note) {
-  console.log("validateNote", typeof(note));
   if (!note.title || typeof note.title !== "string") {
     return false;
   } else {
     return true;
   }
+}
+
+function deleteNote(note) {
+  notesArray.splice(note);
+  fs.writeFileSync(
+    path.join(__dirname, "../db/db.json"),
+    JSON.stringify({ notesArray }, null, 2)
+  );
+  return note;
 }
 
 module.exports = {
