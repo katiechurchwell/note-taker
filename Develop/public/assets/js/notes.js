@@ -82,7 +82,7 @@ const handleNoteSubmit = (event) => {
       alert("Thanks for posting a note!");
     });
 
-  // fetchNotes();
+  fetchNotes();
 };
 
 // Viewing database notes
