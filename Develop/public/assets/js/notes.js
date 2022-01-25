@@ -11,8 +11,9 @@ noteList = document.querySelectorAll(".list-container .list-group");
 const printResults = (resultArr) => {
   const noteHTML = resultArr.map(({ title, text }) => {
     return `
-    <li class="list-group-item"><h4>${title}</h4>
-    <i class="fas fa-trash delete-note"></i></li>
+    <li class="d-flex align-items-center list-group-item"><h4>${title}</h4>
+    <div class="ml-auto p-2"><i class="fas fa-trash delete-note"></i></li>
+    </div>
       </hr>
       `;
   });
