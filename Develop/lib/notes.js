@@ -3,7 +3,7 @@ const fs = require("fs");
 const path = require("path");
 
 function findById(id, notesArray) {
-  const result = animalsArray.filter((note) => note.id === id)[0];
+  const result = notesArray.filter((note) => note.id === id)[0];
   return result;
 }
 
@@ -19,7 +19,7 @@ function createNewNote(body, notesArray) {
 
 function validateNote(note) {
   console.log("validateNote", typeof(note));
-  if (!note.name || typeof note.name !== "string") {
+  if (!note.title || typeof note.title !== "string") {
     return false;
   } else {
     return true;

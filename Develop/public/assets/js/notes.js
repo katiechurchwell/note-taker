@@ -11,13 +11,10 @@ noteList = document.querySelectorAll(".list-container .list-group");
 const printResults = (resultArr) => {
   const noteHTML = resultArr.map(({ title, text }) => {
     return `
-  <div class="col-12 col-md-5 mb-3">
-    <div class="card p-3">
-      <h4 class="text-primary">${title}</h4>
-      <p>${text}</p>
-    </div>
-  </div>
-    `;
+    <li class="list-group-item"><h4>${title}</h4></li>
+      <li class="list-group-item">${text}</p></li>
+      </hr>
+      `;
   });
 
   $displayArea.innerHTML = noteHTML.join("");
@@ -70,7 +67,7 @@ const handleNoteSubmit = (event) => {
   fetch("/api/notes", {
     method: "POST",
     headers: {
-      "Accept": "application/json",
+      Accept: "application/json",
       "Content-Type": "application/json",
     },
     body: noteString,
