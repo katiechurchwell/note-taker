@@ -22,6 +22,6 @@ SO THAT I can organize my thoughts and keep track of tasks I need to complete
 - Get yourself :duck:ing organized!
 
 ## Screenshots
-![Screenshot of "note taker" index page.](develop/public/assets/images/index.png)
+![Screenshot of "note taker" index page.](/images/index.png)
 
-![Screenshot of "note taker" notes page.](develop/public/assets/images/notes.png)
+![Screenshot of "note taker" notes page.](/images/notes.png)
