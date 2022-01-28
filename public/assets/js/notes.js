@@ -7,7 +7,7 @@ saveNoteBtn = document.querySelector(".save-note");
 newNoteBtn = document.querySelector(".new-note");
 noteList = document.querySelectorAll(".list-container .list-group");
 
-//generate note list
+// Generate note list
 const printResults = (resultArr) => {
   const noteHTML = resultArr.map(({ title, text }) => {
     return `
@@ -20,7 +20,7 @@ const printResults = (resultArr) => {
   $displayArea.innerHTML = noteHTML.join("");
 };
 
-//retrieve note database and print
+// Retrieve note database and print
 const fetchNotes = (formData = {}) => {
   let queryUrl = "/api/notes";
 
@@ -36,7 +36,7 @@ const fetchNotes = (formData = {}) => {
     });
 };
 
-//show/hide save button
+// Show/hide save button
 const show = (elem) => {
   elem.style.display = "inline";
 };
@@ -53,15 +53,15 @@ const handleRenderSaveBtn = () => {
   }
 };
 
-//saving notes
+// Saving notes
 const handleNoteSubmit = (event) => {
   event.preventDefault();
 
   const title = noteTitle.value;
   const text = noteText.value;
-  const noteObject = { title, text }; //object
+  const noteObject = { title, text };
 
-  var noteString = JSON.stringify(noteObject); //still an object, causing error
+  var noteString = JSON.stringify(noteObject);
   console.log("noteString in fetch:", typeof noteString);
 
   fetch("/api/notes", {
@@ -102,7 +102,7 @@ const renderActiveNote = () => {
   }
 };
 
-//sets the activeNote and displays it?
+// Sets the activeNote and displays it
 const handleNoteView = (e) => {
   e.preventDefault();
   activeNote = JSON.parse(e.target.parentElement.getAttribute("data-note"));
@@ -115,13 +115,13 @@ const handleNewNoteView = (e) => {
   renderActiveNote();
 };
 
-//event listeners
-saveNoteBtn.addEventListener("click", handleNoteSubmit); //working on saveNote part; bad request and both fail/success alerts.
+// Event listeners
+saveNoteBtn.addEventListener("click", handleNoteSubmit);
 newNoteBtn.addEventListener("click", handleNewNoteView);
-noteTitle.addEventListener("input", handleRenderSaveBtn); //not working
+noteTitle.addEventListener("input", handleRenderSaveBtn);
 noteText.addEventListener("input", handleRenderSaveBtn);
 
-//generate note list
+// Generate note list
 fetchNotes();
 
 document.querySelector("body").addEventListener("click", (event) => {

@@ -21,6 +21,9 @@ To run locally:
 - Look for the port the API server has assigned in the terminal.
 - Navigate to ``localhost:{PORT NUMBER}`` in the web browser.
 
+To view on Heroku:
+[https://fathomless-basin-14567.herokuapp.com/](https://fathomless-basin-14567.herokuapp.com/)
+
 ## Screenshots
 ![Screenshot of "note taker" index page.](/images/index.png)
 
