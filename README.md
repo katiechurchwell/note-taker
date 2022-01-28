@@ -19,7 +19,6 @@ SO THAT I can organize my thoughts and keep track of tasks I need to complete
    - ``npm start``
 - Look for the port the API server has assigned in the terminal.
 - Navigate to ``localhost:{PORT NUMBER}`` in the web browser.
-- Get yourself :duck:ing organized!
 
 ## Screenshots
 ![Screenshot of "note taker" index page.](/images/index.png)
