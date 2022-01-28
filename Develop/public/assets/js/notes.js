@@ -53,7 +53,7 @@ const handleRenderSaveBtn = () => {
   }
 };
 
-//saving notes (error)
+//saving notes
 const handleNoteSubmit = (event) => {
   event.preventDefault();
 
@@ -119,7 +119,13 @@ const handleNewNoteView = (e) => {
 saveNoteBtn.addEventListener("click", handleNoteSubmit); //working on saveNote part; bad request and both fail/success alerts.
 newNoteBtn.addEventListener("click", handleNewNoteView);
 noteTitle.addEventListener("input", handleRenderSaveBtn); //not working
-noteText.addEventListener("input", handleRenderSaveBtn); //working
+noteText.addEventListener("input", handleRenderSaveBtn);
 
 //generate note list
 fetchNotes();
+
+document.querySelector("body").addEventListener("click", (event) => {
+  if (event.target.classList.includes("save-note")) {
+    console.log("note saved");
+  }
+});
