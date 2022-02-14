@@ -9,14 +9,30 @@
 
 A note taking app that allows the user to write and store notes. This was made as an exercise in Express and web servers.
 
-## User Story
+## Table of Contents
+1. [User Story](#User-Story)
+2. [Deployment](#Deployment)
+3. [Screenshots](#Screenshots)
+4. [Installation](#Installation)
+5. [Questions](#Questions)
+6. [License](#License)
+
+## User Story <a name="User-Story"></a>
 AS A small business owner
 
 I WANT to be able to write and save notes
 
 SO THAT I can organize my thoughts and keep track of tasks I need to complete
 
-## Installation
+## Deployment <a name="Deployment"></a>
+fathomless-basin-14567.herokuapp.com/
+
+## Screenshots <a name="Screenshots"></a>
+![Screenshot of "note taker" index page.](/images/index.png)
+
+![Screenshot of "note taker" notes page.](/images/notes.png)
+
+## Installation <a name="Installation"></a>
 To run locally:
 - Clone the repository
 - Execute the following in the terminal:
@@ -28,15 +44,10 @@ To run locally:
 To view on Heroku:
 [https://fathomless-basin-14567.herokuapp.com/](https://fathomless-basin-14567.herokuapp.com/)
 
-## Screenshots
-![Screenshot of "note taker" index page.](/images/index.png)
-
-![Screenshot of "note taker" notes page.](/images/notes.png)
-
-## Questions
+## Questions <a name="Questions"></a>
   If you have any questions about this project, please open an issue or use the contact information below:
   * [katiechurchwell](https://www.github.com/katiechurchwell)
   * [churchwellcatherine@gmail.com](mailto:churchwellcatherine@gmail.com)
 
 ---
-  ![](https://img.shields.io/badge/license-MIT-blue)
+  ![](https://img.shields.io/badge/license-MIT-blue) <a name="License"></a>
